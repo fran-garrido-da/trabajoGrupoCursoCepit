@@ -127,8 +127,26 @@
 // }
 // console.log(contarPalabras("    pablo         asdasd                           "))
 
-function calcularMediana(arr: number[]): number {
-    let sum:number = arr.reduce((value1,value2)=> value1+value2)
-    return sum/arr.length
-}
-console.log(calcularMediana([1,2,3,4,5,6,7,8,9,10]))
+// function calcularMediana(arr: number[]): number {
+//     let sum:number = arr.reduce((value1,value2)=> value1+value2)
+//     return sum/arr.length
+// }
+// console.log(calcularMediana([1,2,3,4,5,6,7,8,9,10]))
+
+// function mcd(a: number, b: number): number {
+//     let resul = 1
+//     let mayor 
+//     if (a>b){
+//          mayor = a
+//     }else {mayor = b}
+//     console.log(mayor)
+//     for (let i=1;i<=mayor;i++){
+//         if (a%i==0 && b%i==0){
+//             if (i< resul || resul == 1){
+//             resul = i
+//             console.log(resul)}
+//         } 
+//     }
+//     return resul
+// }
+// console.log(mcd(13,169))
