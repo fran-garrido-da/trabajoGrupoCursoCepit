@@ -171,11 +171,40 @@ export function mcd(a: number, b: number): number {
 // // Ejemplo:
 // // '4532015112830366' >> true
 // // '1234567812345679' >> false
-export function validarTarjeta(numero: string): boolean {}
+export function validarTarjeta(numero: string): boolean {
+    let a:number[] = new Array(numero.length)
+    let sum:number = 0
+    const check:number = 7
+     for(let i= 0;i<numero.length;i++){
+         a[i] = Number(numero[i])
+         if(i%2!=0){
+             a[i]*=2
+         }
+     sum += a[i]
+     }
+     if (sum*9%10 == check){
+         return true
+     }
+     else{return false}
+ }
 
 // // (16) Crea una función que reciba un número y devuelva la suma de sus dígitos.
 // // Ejemplo: 11 >> 1 + 1 = 2
-// export function sumaDigitos(n: number): number {}
+export function sumaDigitos(n: number): number {
+    let numero:string = n.toString()
+    let num:number[]=[]
+    for (let i = 0; i< numero.length;i++){
+        if(numero[i]=="-"){
+        num[i] = Number(numero[i+1])
+        i++
+        }else {
+            num[i] = Number(numero[i])
+        }
+    }
+    console.log(num)
+    let suma:number = num.reduce((num1,num2)=> num1+num2)
+    return suma 
+}
 
 // // (17) Verificar si una cadena es un anagrama de otra.
 // // Dada dos cadenas de texto, devuelve true si son anagramas entre sí (es decir, si las letras se pueden reorganizar para formar la otra cadena), de lo contrario, devuelve false.

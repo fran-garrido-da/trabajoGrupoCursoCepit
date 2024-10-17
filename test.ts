@@ -133,17 +133,52 @@
 // }
 // console.log(calcularMediana([1,2,3,4,5,6,7,8,9,10]))
 
-function mcd(a: number, b: number): number {
-    let num1:number = Math.max(a,b)
-    let num2:number = Math.min(a,b)
-    let numAux:number
-    if (a>0 && b>0){
-        while (num2!==0){
-            numAux=num2
-            num2 = num1 % num2
-            num1 = numAux
-        }
-    }return num1
-}
+// function mcd(a: number, b: number): number {
+//     let num1:number = Math.max(a,b)
+//     let num2:number = Math.min(a,b)
+//     let numAux:number
+//     if (a>0 && b>0){
+//         while (num2!==0){
+//             numAux=num2
+//             num2 = num1 % num2
+//             num1 = numAux
+//         }
+//     }return num1
+// }
 
-console.log(mcd(105,575))
+// console.log(mcd(105,575))
+
+// function validarTarjeta(numero: string): boolean {
+//    let a:number[] = new Array(numero.length)
+//    let sum:number = 0
+//    const check:number = 7
+//     for(let i= 0;i<numero.length;i++){
+//         a[i] = Number(numero[i])
+//         if(i%2!=0){
+//             a[i]*=2
+//         }
+//     sum += a[i]
+//     }
+//     if (sum*9%10 == check){
+//         return true
+//     }
+//     else{return false}
+// }
+// console.log(validarTarjeta("4532015112830366"))
+
+function sumaDigitos(n: number): number {
+    let numero:string = n.toString()
+    let num:number[]=[]
+    for (let i = 0; i< numero.length;i++){
+        if(numero[i]=="-"){
+        num[i] = Number(numero[i+1])
+        i++
+        }else {
+            num[i] = Number(numero[i])
+        }
+    }
+    console.log(num)
+    let suma:number = num.reduce((num1,num2)=> num1+num2)
+    return suma 
+}
+console.log(sumaDigitos(123232323))
