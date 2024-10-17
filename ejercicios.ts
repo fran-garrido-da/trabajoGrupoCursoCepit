@@ -154,20 +154,16 @@ export function calcularMediana(arr: number[]): number {
 // // Crea una función que calcule el máximo común divisor (MCD) de dos números usando el algoritmo de Euclides.
 // // Ejemplo: 48 y 18 >> 6
 export function mcd(a: number, b: number): number {
-    let resul = 1
-    let mayor 
-    if (a>b){
-         mayor = a
-    }else {mayor = b}
-    console.log(mayor)
-    for (let i=1;i<=mayor;i++){
-        if (a%i==0 && b%i==0){
-            if (i< resul || resul == 1){
-            resul = i
-            console.log(resul)}
-        } 
-    }
-    return resul
+    let num1:number = Math.max(a,b)
+    let num2:number = Math.min(a,b)
+    let numAux:number
+    if (a>0 && b>0){
+        while (num2!==0){
+            numAux=num2
+            num2 = num1 % num2
+            num1 = numAux
+        }
+    }return num1
 }
 
 // // (15) Validar un número de tarjeta de crédito usando el algoritmo de Luhn
@@ -175,7 +171,7 @@ export function mcd(a: number, b: number): number {
 // // Ejemplo:
 // // '4532015112830366' >> true
 // // '1234567812345679' >> false
-export  
+export function validarTarjeta(numero: string): boolean {}
 
 // // (16) Crea una función que reciba un número y devuelva la suma de sus dígitos.
 // // Ejemplo: 11 >> 1 + 1 = 2
