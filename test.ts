@@ -119,7 +119,16 @@
 
 // console.log(multiplicarMatriz([[2, 4], [8, 16]]))
 
-function contarPalabras(frase: string): number {
-    let cont:number = 0
-    
+// function contarPalabras(frase: string): number {
+//     let v1 = frase.split(" ")
+//     v1 = v1.filter(item=> !(item == ""))
+//     let v1Range = v1.length
+//         return v1Range
+// }
+// console.log(contarPalabras("    pablo         asdasd                           "))
+
+function calcularMediana(arr: number[]): number {
+    let sum:number = arr.reduce((value1,value2)=> value1+value2)
+    return sum/arr.length
 }
+console.log(calcularMediana([1,2,3,4,5,6,7,8,9,10]))

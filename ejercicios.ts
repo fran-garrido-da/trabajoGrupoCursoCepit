@@ -136,12 +136,19 @@ export function multiplicarMatriz(matriz: number[][]): number {
 // // (12) Contar las palabras en una frase
 // // Crea una función que reciba una frase y devuelva la cantidad de palabras.
 // // Ejemplo: "Hola mundo" >> 2
-export function contarPalabras(frase: string): number {}
-
+export function contarPalabras(frase: string): number {
+    let v1 = frase.split(" ")
+    v1 = v1.filter(item=> !(item == ""))
+    let v1Range = v1.length
+    return v1Range
+}
 // // (13) Obtener la mediana de un arreglo
 // // Crea una función que calcule la mediana de un arreglo de números.
 // // Ejemplo: [1, 2, 3, 4, 5] >> 3
-// export function calcularMediana(arr: number[]): number {}
+export function calcularMediana(arr: number[]): number {
+    let sum:number = arr.reduce((value1,value2)=> value1+value2)
+    return sum/arr.length
+}
 
 // // (14) Calcular el máximo común divisor (MCD) de dos números
 // // Crea una función que calcule el máximo común divisor (MCD) de dos números usando el algoritmo de Euclides.
