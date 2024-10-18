@@ -1,3 +1,22 @@
+function clasificarEdades(n: number): number[] {
+    let array:number[] = new Array(n)
+    const MIN:number = 18
+    const MAX:number = 40
+    let contMayor:number = 0
+    let contMenor:number = 0
+    for (let i = 0;i<n;i++){
+        array[i]=Math.floor(Math.random() * (MAX - MIN + 1) ) + MIN
+        if (array[i]<21){
+            contMenor++
+        }else {
+            contMayor++
+        }
+    }
+    let resul:number[]=[contMenor,contMayor]
+    return resul
+}
+console.log(clasificarEdades(270))
+
 // function esPrimo(n: number): boolean {
 //     let primo:boolean = true
 //     for (let i:number = n-1;i>1;i--){
@@ -23,10 +42,9 @@
 // function contarVocales(cadena: string): number {
 //const vocales:string[]=["a","e","i","o","u"]
 //       // vocales.forEach(vocal => {
-    //     if (cadena.includes(vocal))
-    //     contador++
-    // })
-
+//     if (cadena.includes(vocal))
+//     contador++
+// })
 
 // }
 
@@ -50,14 +68,14 @@
 // }
 // console.log(esPalindromo("asado"))
 
-// function celsiusAFahrenheit(celsius: number): number {    
+// function celsiusAFahrenheit(celsius: number): number {
 //     return (celsius *9/5)+32
 // }
 // console.log(celsiusAFahrenheit(100).toFixed(2))
 // function filtrarPares(arr: number[]): number[] {
 
 //     const par:number[] = arr.filter(num => !(arr[num]%2===0))
-    
+
 //     return par
 //  }
 
@@ -66,7 +84,7 @@
 // function factorial(n: number): number {
 //     let total:number = 1
 //     for (let i = 1;i<=n;i++){
-//         total *= i 
+//         total *= i
 //         //total = total x i
 //     }
 //     return total
@@ -76,7 +94,7 @@
 // // function promedioArreglo(arr: number[]): number {
 // //     let resultado:number = arr.reduce((acc,arr)=> acc+arr,0)
 
-// //     return resultado/arr.length   
+// //     return resultado/arr.length
 // // }
 // // console.log(promedioArreglo([10,20,30]))
 
@@ -166,19 +184,19 @@
 // }
 // console.log(validarTarjeta("4532015112830366"))
 
-function sumaDigitos(n: number): number {
-    let numero:string = n.toString()
-    let num:number[]=[]
-    for (let i = 0; i< numero.length;i++){
-        if(numero[i]=="-"){
-        num[i] = Number(numero[i+1])
-        i++
-        }else {
-            num[i] = Number(numero[i])
-        }
-    }
-    console.log(num)
-    let suma:number = num.reduce((num1,num2)=> num1+num2)
-    return suma 
-}
-console.log(sumaDigitos(123232323))
+// function sumaDigitos(n: number): number {
+//   let numero: string = n.toString();
+//   let num: number[] = [];
+//   for (let i = 0; i < numero.length; i++) {
+//     if (numero[i] == "-") {
+//       num[i] = Number(numero[i + 1]);
+//       i++;
+//     } else {
+//       num[i] = Number(numero[i]);
+//     }
+//   }
+//   console.log(num);
+//   let suma: number = num.reduce((num1, num2) => num1 + num2);
+//   return suma;
+// }
+// console.log(sumaDigitos(123232323));
