@@ -209,8 +209,14 @@ export function sumaDigitos(n: number): number {
 // // (17) Verificar si una cadena es un anagrama de otra.
 // // Dada dos cadenas de texto, devuelve true si son anagramas entre sí (es decir, si las letras se pueden reorganizar para formar la otra cadena), de lo contrario, devuelve false.
 // // Ejemplo: "roma" y "amor >> true
-// export function esAnagrama(cadena1: string, cadena2: string): boolean {}
-
+export function esAnagrama(cadena1: string, cadena2: string): boolean {
+    let cad1:string = cadena1.split("").sort().join("")
+    let cad2:string = cadena2.split("").sort().join("")
+    if (cad1 == cad2){
+        return true
+    }else return false
+    
+}
 // // (18) Verificar si un número es perfecto.
 // // Un número perfecto es aquel que es igual a la suma de sus divisores propios (excluyendo el propio número). Escribe una función que reciba un número y devuelva true si es un número perfecto, de lo contrario, devuelve false.
 // // Ejemplo:

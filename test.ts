@@ -1,21 +1,21 @@
-function clasificarEdades(n: number): number[] {
-    let array:number[] = new Array(n)
-    const MIN:number = 18
-    const MAX:number = 40
-    let contMayor:number = 0
-    let contMenor:number = 0
-    for (let i = 0;i<n;i++){
-        array[i]=Math.floor(Math.random() * (MAX - MIN + 1) ) + MIN
-        if (array[i]<21){
-            contMenor++
-        }else {
-            contMayor++
-        }
-    }
-    let resul:number[]=[contMenor,contMayor]
-    return resul
-}
-console.log(clasificarEdades(270))
+// function clasificarEdades(n: number): number[] {
+//     let array:number[] = new Array(n)
+//     const MIN:number = 18
+//     const MAX:number = 40
+//     let contMayor:number = 0
+//     let contMenor:number = 0
+//     for (let i = 0;i<n;i++){
+//         array[i]=Math.floor(Math.random() * (MAX - MIN + 1) ) + MIN
+//         if (array[i]<21){
+//             contMenor++
+//         }else {
+//             contMayor++
+//         }
+//     }
+//     let resul:number[]=[contMenor,contMayor]
+//     return resul
+// }
+// console.log(clasificarEdades(270))
 
 // function esPrimo(n: number): boolean {
 //     let primo:boolean = true
@@ -200,3 +200,13 @@ console.log(clasificarEdades(270))
 //   return suma;
 // }
 // console.log(sumaDigitos(123232323));
+
+function esAnagrama(cadena1: string, cadena2: string): boolean {
+    let cad1:string = cadena1.split("").sort().join("")
+    let cad2:string = cadena2.split("").sort().join("")
+    if (cad1 == cad2){
+        return true
+    }else return false
+    
+}
+console.log(esAnagrama("ramon", "ammor"))
