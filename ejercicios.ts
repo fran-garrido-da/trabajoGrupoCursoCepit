@@ -21,7 +21,21 @@
 //Ej: edades = [18, 19, 20, 21, 25, 40]
 //    resultado: [3,3]
 export function clasificarEdades(n: number): number[] {
-   
+    let array:number[] = new Array(n)
+     const MIN:number = 18
+     const MAX:number = 40
+     let contMayor:number = 0
+     let contMenor:number = 0
+     for (let i = 0;i<n;i++){
+         array[i]=Math.floor(Math.random() * (MAX - MIN + 1) ) + MIN
+         if (array[i]<21){
+             contMenor++
+         }else {
+             contMayor++
+         }
+     }
+     let resul:number[]=[contMenor,contMayor]
+     return resul  
 }
 
 // // (2) Dado un número `n`, verifica si es un número primo. Devuelve `true` si es primo, de lo contrario, devuelve `false`.
@@ -210,14 +224,14 @@ export function sumaDigitos(n: number): number {
 // // Dada dos cadenas de texto, devuelve true si son anagramas entre sí (es decir, si las letras se pueden reorganizar para formar la otra cadena), de lo contrario, devuelve false.
 // // Ejemplo: "roma" y "amor >> true
 export function esAnagrama(cadena1: string, cadena2: string): boolean {
-    let cad1:string = cadena1.split("").sort().join("")
-    let cad2:string = cadena2.split("").sort().join("")
-    if (cad1 == cad2){
-        return true
-    }else return false
-    
-}
-// // (18) Verificar si un número es perfecto.
+    let cad1:string = cadena1.trim().split("").sort().join()
+     let cad2:string = cadena2.trim().split("").sort().join()
+     if (cad1 == cad2){
+         return true
+     }else return false
+     
+ }
+ // (18) Verificar si un número es perfecto.
 // // Un número perfecto es aquel que es igual a la suma de sus divisores propios (excluyendo el propio número). Escribe una función que reciba un número y devuelva true si es un número perfecto, de lo contrario, devuelve false.
 // // Ejemplo:
 // //  28 >> true (1 + 2 + 4 + 7 + 14 = 28)
