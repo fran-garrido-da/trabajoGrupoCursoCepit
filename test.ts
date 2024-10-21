@@ -277,3 +277,33 @@
 //     return sum === n
 // }
 // console.log(esNumeroPerfecto(10))
+
+// function convertirABinario(n: number): string {
+//     let bin:string = ""
+//     while(n>0){
+//         bin = bin + n%2
+//         n=Math.floor(n/2)
+//     }
+//     return bin
+// }
+// console.log(convertirABinario(65))
+// function removeNonAlphabeticChars(str) {
+//     return str.replace(/[^a-zA-Z]/g, '');
+// }
+function esPangrama(cadena: string): boolean {
+    let cad:string[] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    let cadjoin:string = cad.join("")
+    cadena = cadena.replace(/[^a-zA-Z]/g, '')
+    let cad2:string[] = cadena.toLowerCase().trim().split("").sort()
+    for (let i = 0; i < cad2.length; i++) {
+        for (let j = i + 1; j < cad2.length; j++) {
+            if (cad2[j] === cad2[i]) {
+                cad2.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    let cad2join:string = cad2.join("")
+    return cadjoin == cad2join
+}
+console.log(esPangrama("aaa,bbb,ccc,d,e,ff,g,hh,y,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,i,z"))

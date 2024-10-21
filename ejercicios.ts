@@ -65,7 +65,7 @@ export function invertirCadena(cadena: string): string {
 // // (4) Dada una cadena de texto, cuenta y devuelve el número de vocales presentes en la cadena.
 // // Ejemplo: 'hola mundo' >> 4
 export function contarVocales(cadena: string): number {
-    let contador:number = 0 //contador de vocales
+    let contador:number = 0 
     let num:number = cadena.length
     const vocales:string = "aeiou"
     for (let i = 0;i<num;i++){
@@ -251,12 +251,34 @@ export function esNumeroPerfecto(n: number): boolean {
 // // (19) Convertir un número a binario.
 // // Crea una función que reciba un número entero positivo y devuelva su representación en binario como una cadena de texto.
 // // Ejemplo: 255 >> "11111111"
-export function convertirABinario(n: number): string {}
+export function convertirABinario(n: number): string {
+    let bin:string = ""
+    while(n>0){
+        bin = bin + n%2
+        n=Math.floor(n/2)
+    }
+    return bin
+}
 
 // // (20) Determinar si una cadena es un pangrama.
 // // Un pangrama es una frase que contiene todas las letras del alfabeto al menos una vez. Escribe una función que reciba una cadena de texto y devuelva true si es un pangrama, de lo contrario, devuelve false.
 // // Ejemplo:
 // // "El cadáver de Wamba, rey godo de España, fue exhumado y trasladado en una caja de zinc que pesó un kilo." >> true
 // // "Hola Mundo" >> false
-// export function esPangrama(cadena: string): boolean {}
+export function esPangrama(cadena: string): boolean {
+    let cad:string[] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    let cadjoin:string = cad.join("")
+    cadena = cadena.replace(/[^a-zA-Z]/g, '')
+    let cad2:string[] = cadena.toLowerCase().trim().split("").sort()
+    for (let i = 0; i < cad2.length; i++) {
+        for (let j = i + 1; j < cad2.length; j++) {
+            if (cad2[j] === cad2[i]) {
+                cad2.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    let cad2join:string = cad2.join("")
+    return cadjoin == cad2join
+}
 
