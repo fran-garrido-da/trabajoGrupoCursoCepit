@@ -238,12 +238,20 @@ export function esAnagrama(cadena1: string, cadena2: string): boolean {
 // // Ejemplo:
 // //  28 >> true (1 + 2 + 4 + 7 + 14 = 28)
 // //  10 >> false
-// export function esNumeroPerfecto(n: number): boolean {}
+export function esNumeroPerfecto(n: number): boolean {
+    let sum:number = 0
+    for (let i = 1;i<n;i++){
+        if(n%i===0){
+            sum +=i
+        }    
+    }
+    return sum === n
+}
 
 // // (19) Convertir un número a binario.
 // // Crea una función que reciba un número entero positivo y devuelva su representación en binario como una cadena de texto.
 // // Ejemplo: 255 >> "11111111"
-// export function convertirABinario(n: number): string {}
+export function convertirABinario(n: number): string {}
 
 // // (20) Determinar si una cadena es un pangrama.
 // // Un pangrama es una frase que contiene todas las letras del alfabeto al menos una vez. Escribe una función que reciba una cadena de texto y devuelva true si es un pangrama, de lo contrario, devuelve false.

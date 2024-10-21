@@ -222,20 +222,22 @@
 //       }
 //      }
 //      console.log(validarTarjeta("4012888888888889"))
-function validarTarjeta(numero: string): boolean {
-    let suma = 0;
-    let alternar = false;
-    for (let i = numero.length - 1; i >= 0; i--) {
-        let n = parseInt(numero[i], 10);
-        if (alternar) {
-            n *= 2;
-            if (n > 9) n -= 9;
-        }
-        suma += n;
-        alternar = !alternar;
-    }
-    return suma % 10 === 0;
-}
+//--------------------FUNCION USADA-------------------
+// function validarTarjeta(numero: string): boolean {
+//     let suma = 0;
+//     let alternar = false;
+//     for (let i = numero.length - 1; i >= 0; i--) {
+//         let n = parseInt(numero[i], 10);
+//         if (alternar) {
+//             n *= 2;
+//             if (n > 9) n -= 9;
+//         }
+//         suma += n;
+//         alternar = !alternar;
+//     }
+//     return suma % 10 === 0;
+// }
+//---------------------------------------------------------
 // function sumaDigitos(n: number): number {
 //   let numero: string = n.toString();
 //   let num: number[] = [];
@@ -262,3 +264,16 @@ function validarTarjeta(numero: string): boolean {
 
 // }
 // console.log(esAnagrama("ram on", "an mor"))
+
+//Un número perfecto es aquel que es igual a la suma de sus divisores propios (excluyendo el propio número). 
+//Escribe una función que reciba un número y devuelva true si es un número perfecto, de lo contrario, devuelve false
+// function esNumeroPerfecto(n: number): boolean {
+//     let sum:number = 0
+//     for (let i = 1;i<n;i++){
+//         if(n%i===0){
+//             sum +=i
+//         }    
+//     }
+//     return sum === n
+// }
+// console.log(esNumeroPerfecto(10))
