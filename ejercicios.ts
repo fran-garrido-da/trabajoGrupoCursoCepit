@@ -186,21 +186,23 @@ export function mcd(a: number, b: number): number {
 // // '4532015112830366' >> true
 // // '1234567812345679' >> false
 export function validarTarjeta(numero: string): boolean {
-    let a:number[] = new Array(numero.length)
-    let sum:number = 0
-    const check:number = 7
-     for(let i= 0;i<numero.length;i++){
-         a[i] = Number(numero[i])
-         if(i%2!=0){
-             a[i]*=2
-         }
-     sum += a[i]
-     }
-     if (sum*9%10 == check){
-         return true
-     }
-     else{return false}
- }
+    let texto = numero.replace(/-/g, "");
+    let suma = 0;
+    let alternar = false;
+    if(texto.length !== 16){
+        return false
+    }
+    for (let i = texto.length - 1; i >= 0; i--) {
+        let n = parseInt(texto[i], 10);
+        if (alternar) {
+            n *= 2;
+            if (n > 9) n -= 9;
+        }
+        suma += n;
+        alternar = !alternar;
+    }
+    return suma % 10 === 0;
+}
 
 // // (16) Crea una función que reciba un número y devuelva la suma de sus dígitos.
 // // Ejemplo: 11 >> 1 + 1 = 2

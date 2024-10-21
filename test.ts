@@ -1,21 +1,21 @@
-function clasificarEdades(n: number): number[] {
-    let array:number[] = new Array(n)
-    const MIN:number = 18
-    const MAX:number = 40
-    let contMayor:number = 0
-    let contMenor:number = 0
-    for (let i = 0;i<n;i++){
-        array[i]=Math.floor(Math.random() * (MAX - MIN + 1) ) + MIN
-        if (array[i]<21){
-            contMenor++
-        }else {
-            contMayor++
-        }
-    }
-    let resul:number[]=[contMenor,contMayor]
-    return resul
-}
-console.log(clasificarEdades(270))
+// function clasificarEdades(n: number): number[] {
+//     let array:number[] = new Array(n)
+//     const MIN:number = 18
+//     const MAX:number = 40
+//     let contMayor:number = 0
+//     let contMenor:number = 0
+//     for (let i = 0;i<n;i++){
+//         array[i]=Math.floor(Math.random() * (MAX - MIN + 1) ) + MIN
+//         if (array[i]<21){
+//             contMenor++
+//         }else {
+//             contMayor++
+//         }
+//     }
+//     let resul:number[]=[contMenor,contMayor]
+//     return resul
+// }
+// console.log(clasificarEdades(270))
 
 // function esPrimo(n: number): boolean {
 //     let primo:boolean = true
@@ -166,24 +166,76 @@ console.log(clasificarEdades(270))
 
 // console.log(mcd(105,575))
 
-// function validarTarjeta(numero: string): boolean {
-//    let a:number[] = new Array(numero.length)
-//    let sum:number = 0
-//    const check:number = 7
-//     for(let i= 0;i<numero.length;i++){
-//         a[i] = Number(numero[i])
-//         if(i%2!=0){
-//             a[i]*=2
-//         }
-//     sum += a[i]
+// function validarTarjeta2(numero: string): boolean {
+//   let texto = numero.replace(/-/g, "");
+//   let sum: number = 0;
+//   let a:number[] = new Array(texto.length)
+//   const check: number = Number(texto[texto.length - 1]);
+//   if(texto.length !== 16){
+//         return false
+//   }
+//   for (let i = texto.length - 2; i >= 0; i--) {
+//     a[i] = Number(texto[i]);
+//     if (i % 2 != 0) {
+//       //si la posicion es par, duplica el digito
+//       a[i] *= 2;
+//       if (a[i] > 9) {
+//         //si el digito duplicado es mayor a 9, le resta 9 y lo suma
+//         a[i] = a[i] - 9;
+//       } //si es menor a 9, lo suma como esta
 //     }
-//     if (sum*9%10 == check){
-//         return true
-//     }
-//     else{return false}
-// }
-// console.log(validarTarjeta("4532015112830366"))
 
+//     sum += a[i];
+//   }
+//   //console.log(a);
+//   console.log(sum)
+//   console.log((sum * 9) % 10);
+//   if ((sum * 9) % 10 == check) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(validarTarjeta("4242424242424242"));
+// console.log(validarTarjeta2("4242424242424242"));
+
+//  function validarTarjeta(numero: string): boolean {
+//      let suma = 0;
+//      let posicionPar = false;
+//       for (let i = numero.length -1; i >= 0; i--) {
+//          let digito = parseInt(numero[i]);
+//          if (posicionPar) {
+//              digito = digito * 2;
+//              if (digito >9) {
+//                  digito = digito - 9;
+//              }
+//          }
+//          suma = suma + digito;
+//          // se invierte el false por true y viseversa
+//          posicionPar = !posicionPar;
+//       }
+//       if (suma % 10 === 0) {
+//          return true;
+//       } else {
+//          return false;
+//       }
+//      }
+//      console.log(validarTarjeta("4012888888888889"))
+function validarTarjeta(numero: string): boolean {
+    let suma = 0;
+    let alternar = false;
+    for (let i = numero.length - 1; i >= 0; i--) {
+        let n = parseInt(numero[i], 10);
+        if (alternar) {
+            n *= 2;
+            if (n > 9) n -= 9;
+        }
+        suma += n;
+        alternar = !alternar;
+    }
+    return suma % 10 === 0;
+}
 // function sumaDigitos(n: number): number {
 //   let numero: string = n.toString();
 //   let num: number[] = [];
@@ -201,12 +253,12 @@ console.log(clasificarEdades(270))
 // }
 // console.log(sumaDigitos(123232323));
 
- function esAnagrama(cadena1: string, cadena2: string): boolean {
-   let cad1:string = cadena1.trim().split("").sort().join()
-    let cad2:string = cadena2.trim().split("").sort().join()
-    if (cad1 == cad2){
-        return true
-    }else return false
-    
-}
-console.log(esAnagrama("ram on", "an mor"))
+//  function esAnagrama(cadena1: string, cadena2: string): boolean {
+//    let cad1:string = cadena1.trim().split("").sort().join()
+//     let cad2:string = cadena2.trim().split("").sort().join()
+//     if (cad1 == cad2){
+//         return true
+//     }else return false
+
+// }
+// console.log(esAnagrama("ram on", "an mor"))
