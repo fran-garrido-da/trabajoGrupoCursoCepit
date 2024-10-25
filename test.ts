@@ -62,11 +62,29 @@
 // console.log(contarVocales("hUbiera sErvidO"))
 
 // function esPalindromo(palabra: string): boolean {
-//     if (palabra.toLowerCase() == invertirCadena(palabra).toLowerCase())
+//     let num: number = palabra.length;
+//     let texto:string = ""
+//     for (let i = 1; i <= num; i++) {
+//        texto = texto + palabra[num - i];
+//     }
+//     if (palabra.toLowerCase() == texto.toLowerCase())
 //         return true
 //     else return false
 // }
-// console.log(esPalindromo("asado"))
+// // // // // // // // function esPalindromo(palabra: string): boolean {
+// // // // // // // //     const longitud = palabra.length;
+    
+// // // // // // // //     for (let i = 0; i < Math.floor(longitud / 2); i++) {
+// // // // // // // //         if (palabra[i].toLowerCase() !== palabra[longitud - 1 - i].toLowerCase()) {
+// // // // // // // //             return false; // Si hay una discrepancia, no es un palíndromo.
+// // // // // // // //         }
+// // // // // // // //     }
+    
+// // // // // // // //     return true; // Si todas las comparaciones son iguales, es un palíndromo.
+// // // // // // // // }
+
+// console.log(esPalindromo(""))
+
 
 // function celsiusAFahrenheit(celsius: number): number {
 //     return (celsius *9/5)+32
@@ -74,12 +92,12 @@
 // console.log(celsiusAFahrenheit(100).toFixed(2))
 // function filtrarPares(arr: number[]): number[] {
 
-//     const par:number[] = arr.filter(num => !(arr[num]%2===0))
+//     const par:number[] = arr.filter(num => (num % 2 === 0))
 
 //     return par
 //  }
 
-//  console.log(filtrarPares([1,2,3,4,5,6,7,8,9,10]))
+//  console.log(filtrarPares([12,6,3,99,54,61,71,81,90,10]))
 
 // function factorial(n: number): number {
 //     let total:number = 1
@@ -113,18 +131,6 @@
 // // const resultado = eliminarDuplicados(array)
 // console.log(eliminarDuplicados([1, 2, 2, 3,5,5,5,5,6,5,7,4]))
 
-// function esPalindromo(palabra: string): boolean {
-//     let num: number = palabra.length;
-//     let texto:string = ""
-//     for (let i = 1; i <= num; i++) {
-//        texto = texto + palabra[num - i];
-//     }
-//     if (palabra.toLowerCase() == texto.toLowerCase())
-//         return true
-//     else return false
-// }
-// console.log(esPalindromo(""))
-
 // function multiplicarMatriz(matriz: number[][]): number {
 //     let total:number = 1
 //     for (let i = 0; i<matriz.length;i++){
@@ -146,8 +152,9 @@
 // console.log(contarPalabras("    pablo         asdasd                           "))
 
 // function calcularMediana(arr: number[]): number {
-//     let sum:number = arr.reduce((value1,value2)=> value1+value2)
-//     return sum/arr.length
+//     arr.sort((a,b)=>a-b)
+//     const mid:number = Math.floor(arr.length/2)
+//     return arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2
 // }
 // console.log(calcularMediana([1,2,3,4,5,6,7,8,9,10]))
 
@@ -253,7 +260,18 @@
 //   let suma: number = num.reduce((num1, num2) => num1 + num2);
 //   return suma;
 // }
-// console.log(sumaDigitos(123232323));
+// // // // // // // // // function sumaDigitos(n: number): number {
+// // // // // // // // //     let suma: number = 0;
+// // // // // // // // //     const numero: string = Math.abs(n).toString();
+    
+// // // // // // // // //     for (let i = 0; i < numero.length; i++) {
+// // // // // // // // //         suma += Number(numero[i]);
+// // // // // // // // //     }
+    
+// // // // // // // // //     return suma;
+// // // // // // // // // }
+
+// console.log(sumaDigitos(-123232323));
 
 //  function esAnagrama(cadena1: string, cadena2: string): boolean {
 //    let cad1:string = cadena1.trim().split("").sort().join()
@@ -279,31 +297,38 @@
 // console.log(esNumeroPerfecto(10))
 
 // function convertirABinario(n: number): string {
-//     let bin:string = ""
-//     while(n>0){
-//         bin = bin + n%2
-//         n=Math.floor(n/2)
+//     let bin: string[] = []; // Usar un arreglo para almacenar los dígitos
+//     while (n > 0) {
+//         bin.push((n % 2).toString()); // Agregar el dígito como cadena
+//         n = Math.floor(n / 2);
 //     }
-//     return bin
+//     return bin.reverse().join(""); // Invertir y unir el arreglo para formar la cadena
 // }
-// console.log(convertirABinario(65))
+
+// console.log(convertirABinario(652))
 // function removeNonAlphabeticChars(str) {
 //     return str.replace(/[^a-zA-Z]/g, '');
 // }
-function esPangrama(cadena: string): boolean {
-    let cad:string[] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    let cadjoin:string = cad.join("")
-    cadena = cadena.replace(/[^a-zA-Z]/g, '')
-    let cad2:string[] = cadena.toLowerCase().trim().split("").sort()
-    for (let i = 0; i < cad2.length; i++) {
-        for (let j = i + 1; j < cad2.length; j++) {
-            if (cad2[j] === cad2[i]) {
-                cad2.splice(j, 1);
-                j--;
-            }
-        }
-    }
-    let cad2join:string = cad2.join("")
-    return cadjoin == cad2join
-}
-console.log(esPangrama("aaa,bbb,ccc,d,e,ff,g,hh,y,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,i,z"))
+// function esPangrama(cadena: string): boolean {
+//     let cad:string[] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+//     let cadjoin:string = cad.join("")
+//     cadena = cadena.replace(/[^a-zA-Z]/g, '')
+//     let cad2:string[] = cadena.toLowerCase().trim().split("").sort()
+//     for (let i = 0; i < cad2.length; i++) {
+//         for (let j = i + 1; j < cad2.length; j++) {
+//             if (cad2[j] === cad2[i]) {
+//                 cad2.splice(j, 1);
+//                 j--;
+//             }
+//         }
+//     }
+//     let cad2join:string = cad2.join("")
+//     return cadjoin == cad2join
+// }
+// console.log(esPangrama("aaa,bbb,ccc,d,e,ff,g,hh,y,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,i,z"))
+// // // // // // function esPangrama(cadena: string): boolean {
+// // // // // //     const alfabeto: Set<string> = new Set("abcdefghijklmnopqrstuvwxyz".split(""));
+// // // // // //     const caracteres: Set<string> = new Set(cadena.toLowerCase().replace(/[^a-z]/g, ''));
+    
+// // // // // //     return alfabeto.size === caracteres.size && [...alfabeto].every(letra => caracteres.has(letra));
+// // // // // // }

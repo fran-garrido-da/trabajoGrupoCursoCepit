@@ -96,7 +96,7 @@ export function celsiusAFahrenheit(celsius: number): number {
 
 // // (7) Dado un arreglo de números, devuelve un nuevo arreglo que contenga solo los números pares del arreglo original.
 export function filtrarPares(arr: number[]): number[] {
-   const par = arr.filter(num => arr[num]%2===0)
+   const par = arr.filter(num => num % 2 === 0)
    return par
 }
 
@@ -160,9 +160,10 @@ export function contarPalabras(frase: string): number {
 // // Crea una función que calcule la mediana de un arreglo de números.
 // // Ejemplo: [1, 2, 3, 4, 5] >> 3
 export function calcularMediana(arr: number[]): number {
-    let sum:number = arr.reduce((value1,value2)=> value1+value2)
-    return sum/arr.length
-}
+        arr.sort((a,b)=>a-b)
+        const mid:number = Math.floor(arr.length/2)
+        return arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2
+    }
 
 // // (14) Calcular el máximo común divisor (MCD) de dos números
 // // Crea una función que calcule el máximo común divisor (MCD) de dos números usando el algoritmo de Euclides.
@@ -207,19 +208,18 @@ export function validarTarjeta(numero: string): boolean {
 // // (16) Crea una función que reciba un número y devuelva la suma de sus dígitos.
 // // Ejemplo: 11 >> 1 + 1 = 2
 export function sumaDigitos(n: number): number {
-    let numero:string = n.toString()
-    let num:number[]=[]
-    for (let i = 0; i< numero.length;i++){
-        if(numero[i]=="-"){
-        num[i] = Number(numero[i+1])
-        i++
-        }else {
-            num[i] = Number(numero[i])
-        }
+    let numero: string = n.toString();
+    let num: number[] = [];
+    for (let i = 0; i < numero.length; i++) {
+      if (numero[i] == "-") {
+        num[i] = Number(numero[i + 1]);
+        i++;
+      } else {
+        num[i] = Number(numero[i]);
+      }
     }
-    console.log(num)
-    let suma:number = num.reduce((num1,num2)=> num1+num2)
-    return suma 
+    let suma: number = num.reduce((num1, num2) => num1 + num2);
+    return suma;
 }
 
 // // (17) Verificar si una cadena es un anagrama de otra.
@@ -252,12 +252,12 @@ export function esNumeroPerfecto(n: number): boolean {
 // // Crea una función que reciba un número entero positivo y devuelva su representación en binario como una cadena de texto.
 // // Ejemplo: 255 >> "11111111"
 export function convertirABinario(n: number): string {
-    let bin:string = ""
-    while(n>0){
-        bin = bin + n%2
-        n=Math.floor(n/2)
+    let bin: string[] = []; 
+    while (n > 0) {
+        bin.push((n % 2).toString());
+        n = Math.floor(n / 2);
     }
-    return bin
+    return bin.reverse().join("");
 }
 
 // // (20) Determinar si una cadena es un pangrama.
