@@ -17,20 +17,20 @@
 // }
 // console.log(clasificarEdades(270))
 
-function esPrimo(n: number): boolean {
-    let primo:boolean = true
-    if(n <= 2){
-        return false;
-    }
-    for (let i:number = n-1;i>1;i--){
-        if (n%i === 0){
-            primo = false
-        }
-    }
+// function esPrimo(n: number): boolean {
+//     let primo:boolean = true
+//     if(n <= 2){
+//         return false;
+//     }
+//     for (let i:number = n-1;i>1;i--){
+//         if (n%i === 0){
+//             primo = false
+//         }
+//     }
 
-    return primo
-}
-console.log(esPrimo(6))
+//     return primo
+// }
+// console.log(esPrimo(6))
 
 // function invertirCadena(cadena: string): string {
 //     let num: number = cadena.length;
@@ -301,15 +301,16 @@ console.log(esPrimo(6))
 // console.log(esNumeroPerfecto(10))
 
 // function convertirABinario(n: number): string {
-//     let bin: string[] = []; // Usar un arreglo para almacenar los dígitos
-//     while (n > 0) {
-//         bin.push((n % 2).toString()); // Agregar el dígito como cadena
-//         n = Math.floor(n / 2);
-//     }
-//     return bin.reverse().join(""); // Invertir y unir el arreglo para formar la cadena
-// }
+//     let num : number = Math.abs(n);
+//     let bin: string[] = []; 
+//      while (num > 0) {
+//          bin.push((num % 2).toString()); 
+//          num = Math.floor(num / 2);
+//      }
+//      return bin.reverse().join(""); 
+//  }
 
-// console.log(convertirABinario(652))
+// console.log(convertirABinario(65))
 // function removeNonAlphabeticChars(str) {
 //     return str.replace(/[^a-zA-Z]/g, '');
 // }
