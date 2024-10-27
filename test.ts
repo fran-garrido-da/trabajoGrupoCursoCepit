@@ -17,16 +17,20 @@
 // }
 // console.log(clasificarEdades(270))
 
-// function esPrimo(n: number): boolean {
-//     let primo:boolean = true
-//     for (let i:number = n-1;i>1;i--){
-//         if (n%i === 0){ //Checkea si el numero i es divisor del numero n
-//             primo = false
-//         }
-//     }
-//     return primo
-// }
-// console.log(esPrimo(152))
+function esPrimo(n: number): boolean {
+    let primo:boolean = true
+    if(n <= 2){
+        return false;
+    }
+    for (let i:number = n-1;i>1;i--){
+        if (n%i === 0){
+            primo = false
+        }
+    }
+
+    return primo
+}
+console.log(esPrimo(6))
 
 // function invertirCadena(cadena: string): string {
 //     let num: number = cadena.length;

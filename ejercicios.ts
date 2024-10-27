@@ -44,11 +44,15 @@ export function clasificarEdades(n: number): number[] {
 // // 10 >> false
 export function esPrimo(n: number): boolean {
     let primo:boolean = true
+    if(n <= 2){
+        return false;
+    }
     for (let i:number = n-1;i>1;i--){
         if (n%i === 0){
             primo = false
         }
     }
+
     return primo
 }
 
@@ -115,7 +119,6 @@ export function factorial(n: number): number {
 // // Ejemplo: [10, 20, 30] >> 20
 export function promedioArreglo(arr: number[]): number {
     let resultado:number = arr.reduce((acc,arr)=> acc+arr,0)
-
     return resultado/arr.length   
 }
 
