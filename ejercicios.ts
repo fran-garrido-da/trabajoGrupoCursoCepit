@@ -44,7 +44,7 @@ export function clasificarEdades(n: number): number[] {
 // // 10 >> false
 export function esPrimo(n: number): boolean {
     let primo:boolean = true
-    if(n <= 2){
+    if(n < 2){
         return false;
     }
     for (let i:number = n-1;i>1;i--){
